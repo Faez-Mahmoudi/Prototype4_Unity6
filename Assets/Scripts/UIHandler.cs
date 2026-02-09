@@ -47,7 +47,7 @@ public class UIHandler : MonoBehaviour
             }
         }
         else    
-            GameIsOverActions();            
+            GameIsOver();            
         */
         // ESC key pressed
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -91,7 +91,7 @@ public class UIHandler : MonoBehaviour
         }
     }
 
-    private void GameIsOverActions()
+    public void GameIsOver()
     {
         gameOverPanel.gameObject.SetActive(true);
         /*
