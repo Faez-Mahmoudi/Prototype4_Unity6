@@ -8,6 +8,9 @@ using UnityEditor;
 
 public class UIHandler : MonoBehaviour
 {
+    private int waveNum;
+    private int point;
+
     [Header("Panel")]
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private GameObject pausePanel;
@@ -24,12 +27,15 @@ public class UIHandler : MonoBehaviour
     void Start()
     {
         //MainManager.Instance.LoadScore();
+        waveNum = 1;
+        point = 0;
         paused = false;
         gameOverPanel.gameObject.SetActive(false);
         pausePanel.gameObject.SetActive(false);
         
-        //dollarText.text = MainManager.Instance.dollars + "$";
-        //bombText.text = MainManager.Instance.bombAmount + "B";
+        waveText.text = "Wave: " + waveNum;
+        pointText.text = "Points: " + point;
+        powerupText.text = "Powerup: None" ;
         //scoreText.text = PrintScore(score);
         //bestScoreText.text = PrintScore(MainManager.Instance.bestScore);
     }
@@ -53,25 +59,24 @@ public class UIHandler : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
             ChangePause();
     }
-    /*
-    public void AddDollar(int value)
+    
+    public void AddWave(int value)
     {
-        MainManager.Instance.dollars += value;
-        dollarText.text = MainManager.Instance.dollars + "$";
+        waveNum += value;
+        waveText.text = "Wave: " + waveNum;
     }
 
-    public void AddBomb(int value)
+    public void AddPoint(int value)
     {
-        MainManager.Instance.bombAmount += value;
-        bombText.text = MainManager.Instance.bombAmount + "B";
+        point += value;
+        pointText.text = "Points: " + point;
     }
 
-    public void ScoreUpdate()
+    public void PrintPowerup(string powerupName)
     {
-        score += 1;
-        scoreText.SetText(PrintScore(score));
+        powerupText.text = "Powerup: " + powerupName;
     }
-    */
+    
     public void ChangePause()
     {
         if (true)//GameManager.Instance.isGameActive)
