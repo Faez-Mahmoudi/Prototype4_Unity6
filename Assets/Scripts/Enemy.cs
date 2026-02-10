@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    private UIHandler uiHandler;
+
     public float speed = 3.0f;
     private Rigidbody enemyRb;
     private GameObject player;
@@ -18,6 +20,8 @@ public class Enemy : MonoBehaviour
     {
         enemyRb = GetComponent<Rigidbody>();
         player = GameObject.Find("Player");
+        uiHandler = GameObject.Find("Canvas").GetComponent<UIHandler>(); 
+
 
         if (isBoss)
         {
@@ -44,6 +48,12 @@ public class Enemy : MonoBehaviour
 
         // Destroy out of bound
         if (transform.position.y < -10)
+        {
             Destroy(gameObject);
+            if(isBoss)
+                uiHandler.AddPoint(15);
+            else
+                uiHandler.AddPoint(5);
+        }
     }
 }

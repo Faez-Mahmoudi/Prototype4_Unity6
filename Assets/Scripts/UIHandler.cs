@@ -8,7 +8,6 @@ using UnityEditor;
 
 public class UIHandler : MonoBehaviour
 {
-    private int waveNum;
     private int point;
 
     [Header("Panel")]
@@ -27,13 +26,11 @@ public class UIHandler : MonoBehaviour
     void Start()
     {
         //MainManager.Instance.LoadScore();
-        waveNum = 1;
         point = 0;
         paused = false;
         gameOverPanel.gameObject.SetActive(false);
         pausePanel.gameObject.SetActive(false);
         
-        waveText.text = "Wave: " + waveNum;
         pointText.text = "Points: " + point;
         powerupText.text = "Powerup: None" ;
         //scoreText.text = PrintScore(score);
@@ -60,10 +57,9 @@ public class UIHandler : MonoBehaviour
             ChangePause();
     }
     
-    public void AddWave(int value)
+    public void PrintWave(int value)
     {
-        waveNum += value;
-        waveText.text = "Wave: " + waveNum;
+        waveText.text = "Wave: " + value;
     }
 
     public void AddPoint(int value)

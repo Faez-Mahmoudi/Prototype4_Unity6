@@ -5,9 +5,11 @@ public class SpawnManager : MonoBehaviour
     public GameObject[] enemyPrefabs;
     public GameObject[] powerupPrefabs;
 
+    private UIHandler uiHandler;
+
     private float spawnRange = 9.0f;
     public int enemyCount;
-    public int waveNumber = 1;
+    public int waveNumber;
 
     // Boss variables
     public GameObject bossPrefab;
@@ -17,6 +19,12 @@ public class SpawnManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        uiHandler = GameObject.Find("Canvas").GetComponent<UIHandler>(); 
+
+        waveNumber = 1;
+        uiHandler.PrintWave(waveNumber);
+
+
         SpawnEnemyWave(waveNumber);
         int randomPowerup = Random.Range(0, powerupPrefabs.Length);
         Instantiate(powerupPrefabs[randomPowerup], GenerateSpawnPosition(), powerupPrefabs[randomPowerup].transform.rotation);
@@ -29,6 +37,7 @@ public class SpawnManager : MonoBehaviour
         if ( enemyCount == 0)
         {
             waveNumber ++;
+            uiHandler.PrintWave(waveNumber);
 
             // Spawn a Boos every x number of waves
             if (waveNumber % bossRound == 0)
