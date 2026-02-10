@@ -64,6 +64,8 @@ public class PlayerController : MonoBehaviour
         {
             hasPowerup = true;
             currentPoverUp = other.gameObject.GetComponent<Powerup>().powerUpType;
+            uiHandler.PrintPowerup(currentPoverUp.ToString());
+
             Destroy(other.gameObject);
             powerupIndicator.gameObject.SetActive(true);
 
@@ -147,6 +149,7 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(7);
         hasPowerup = false;
         currentPoverUp = PowerUpType.None;
+        uiHandler.PrintPowerup("None");
         powerupIndicator.gameObject.SetActive(false);
     }
 }
