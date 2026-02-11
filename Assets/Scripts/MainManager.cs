@@ -4,20 +4,16 @@ using System.IO;
 public class MainManager : MonoBehaviour
 {
     public static MainManager Instance{get; private set;}
-    public int bestScore;
-    public int savedScore;
-    public int dollars;
-    public int bombAmount;
+    public int bestWave;
+    public int bestPoint;
     public bool isGameActive;
-    public bool isContinueued;
 
     // Save our data
     [System.Serializable]
     class SaveData
     {
-        public int b_Score;
-        public int m_dollars;
-        public int b_amount;
+        public int b_wave;
+        public int b_point;
     }
 
     void Awake()
@@ -31,16 +27,14 @@ public class MainManager : MonoBehaviour
        Instance = this;
        DontDestroyOnLoad(gameObject); 
        isGameActive = true;
-       isContinueued = false;
        LoadScore();
     }
 
     public void SaveScore()
     {
         SaveData data = new SaveData();
-        data.b_Score = bestScore;
-        data.m_dollars = dollars;
-        data.b_amount = bombAmount;
+        data.b_wave = bestWave;
+        data.b_point = bestPoint;
 
         string json  = JsonUtility.ToJson(data);
         File.WriteAllText(Application.persistentDataPath + "/savefile.json", json);
@@ -54,15 +48,13 @@ public class MainManager : MonoBehaviour
         {
             string json = File.ReadAllText(path);
             SaveData data = JsonUtility.FromJson<SaveData>(json);
-            bestScore = data.b_Score;
-            dollars = data.m_dollars;
-            bombAmount = data.b_amount;
+            bestWave = data.b_wave;
+            bestPoint = data.b_point;
         }
         else
         {
-            bestScore = 0;
-            dollars = 0;
-            bombAmount = 0;
+            bestWave = 1;
+            bestPoint = 0;
         }
     }
 }
