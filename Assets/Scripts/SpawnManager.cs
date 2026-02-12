@@ -33,26 +33,29 @@ public class SpawnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        enemyCount = FindObjectsByType<Enemy>(FindObjectsSortMode.None).Length;
-        if ( enemyCount == 0)
+        if (MainManager.Instance.isGameActive)
         {
-            waveNumber ++;
-            uiHandler.PrintWave(waveNumber);
+            enemyCount = FindObjectsByType<Enemy>(FindObjectsSortMode.None).Length;
+            if ( enemyCount == 0)
+            {
+                waveNumber ++;
+                uiHandler.PrintWave(waveNumber);
 
-            // Spawn a Boos every x number of waves
-            if (waveNumber % bossRound == 0)
-            {
-                SpawnBossWave(waveNumber);
-            }
-            else
-            {
-                SpawnEnemyWave(waveNumber);
-            }
-            
-            // Updated to select a random powerup prefab for the Medium Challenge
-            int randomPowerup = Random.Range(0, powerupPrefabs.Length);
-            Instantiate(powerupPrefabs[randomPowerup], GenerateSpawnPosition(), powerupPrefabs[randomPowerup].transform.rotation);
-        }   
+                // Spawn a Boos every x number of waves
+                if (waveNumber % bossRound == 0)
+                {
+                    SpawnBossWave(waveNumber);
+                }
+                else
+                {
+                    SpawnEnemyWave(waveNumber);
+                }
+                
+                // Updated to select a random powerup prefab for the Medium Challenge
+                int randomPowerup = Random.Range(0, powerupPrefabs.Length);
+                Instantiate(powerupPrefabs[randomPowerup], GenerateSpawnPosition(), powerupPrefabs[randomPowerup].transform.rotation);
+            }  
+        } 
     }
 
     // Random position generator

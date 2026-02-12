@@ -95,6 +95,8 @@ public class UIHandler : MonoBehaviour
     public void GameIsOver()
     {
         gameOverPanel.gameObject.SetActive(true);
+        MainManager.Instance.isGameActive = false;
+
         /*
         if (score > MainManager.Instance.bestScore)
         {
