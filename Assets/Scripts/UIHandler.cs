@@ -25,16 +25,19 @@ public class UIHandler : MonoBehaviour
 
     void Start()
     {
-        //MainManager.Instance.LoadScore();
         point = 0;
         paused = false;
+
+        MainManager.Instance.LoadScore();
         MainManager.Instance.isGameActive = true;
+        bestPointText.SetText("Best Point: " + MainManager.Instance.bestPoint);
+
         gameOverPanel.gameObject.SetActive(false);
         pausePanel.gameObject.SetActive(false);
         
         pointText.text = "Points: " + point;
         powerupText.text = "Powerup: None" ;
-        //scoreText.text = PrintScore(score);
+    
         //bestScoreText.text = PrintScore(MainManager.Instance.bestScore);
     }
 
@@ -76,7 +79,7 @@ public class UIHandler : MonoBehaviour
     
     public void ChangePause()
     {
-        if (true)//GameManager.Instance.isGameActive)
+        if (MainManager.Instance.isGameActive)
         {
             if(!paused)
             {
@@ -95,33 +98,25 @@ public class UIHandler : MonoBehaviour
 
     public void GameIsOver()
     {
+        MainManager.Instance.SaveScore();
         gameOverPanel.gameObject.SetActive(true);
         MainManager.Instance.isGameActive = false;
 
-        /*
-        if (score > MainManager.Instance.bestScore)
+        if (point > MainManager.Instance.bestPoint)
         {
-            MainManager.Instance.bestScore = score;
-            bestScoreText.SetText(PrintScore(MainManager.Instance.bestScore));
+            MainManager.Instance.bestPoint = point;
+            bestPointText.SetText("Best Point: " + MainManager.Instance.bestPoint);
         }
-
-        // Continue butten activated
-        if (MainManager.Instance.dollars >= 10 && !MainManager.Instance.isContinueued)
-            continueButton.interactable = true;
-        else
-            continueButton.interactable = false;
-        */
     }
 
     public void Restart()
     {
-        //MainManager.Instance.isGameActive = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void Exit()
     {
-        //MainManager.Instance.SaveScore();
+        MainManager.Instance.SaveScore();
 
         # if UNITY_EDITOR
         EditorApplication.ExitPlaymode();
