@@ -28,6 +28,7 @@ public class UIHandler : MonoBehaviour
         //MainManager.Instance.LoadScore();
         point = 0;
         paused = false;
+        MainManager.Instance.isGameActive = true;
         gameOverPanel.gameObject.SetActive(false);
         pausePanel.gameObject.SetActive(false);
         
@@ -114,8 +115,8 @@ public class UIHandler : MonoBehaviour
 
     public void Restart()
     {
+        //MainManager.Instance.isGameActive = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        //GameManager.Instance.isGameActive = true;
     }
 
     public void Exit()

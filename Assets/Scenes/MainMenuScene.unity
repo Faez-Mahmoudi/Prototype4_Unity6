@@ -200,7 +200,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 34442275}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 806225679}
+        m_TargetAssemblyTypeName: MainSceneUIHandler, Assembly-CSharp
+        m_MethodName: OnePlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &34442275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -694,7 +706,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 326037905}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 806225679}
+        m_TargetAssemblyTypeName: MainSceneUIHandler, Assembly-CSharp
+        m_MethodName: TwoPlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &326037905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -942,8 +966,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 806225679}
-        m_TargetAssemblyTypeName: UIHandler, Assembly-CSharp
-        m_MethodName: Restart
+        m_TargetAssemblyTypeName: MainSceneUIHandler, Assembly-CSharp
+        m_MethodName: PlayGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1320,17 +1344,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 806225674}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cdb8118d4ef6144dbdb0535bf39c84a, type: 3}
+  m_Script: {fileID: 11500000, guid: 9c44bfe64c320d845946b31f8fca60fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverPanel: {fileID: 0}
-  pausePanel: {fileID: 0}
-  paused: 0
-  waveText: {fileID: 0}
-  bestWaveText: {fileID: 0}
-  pointText: {fileID: 0}
-  bestPointText: {fileID: 0}
-  powerupText: {fileID: 0}
 --- !u!4 &896165102 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7382815964509602841, guid: 3fd5555088952419ebf0eb82e9096fa5, type: 3}
@@ -1951,7 +1967,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 806225679}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIHandler, Assembly-CSharp
         m_MethodName: ChangePause
         m_Mode: 1
@@ -2601,7 +2617,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 806225679}
-        m_TargetAssemblyTypeName: UIHandler, Assembly-CSharp
+        m_TargetAssemblyTypeName: MainSceneUIHandler, Assembly-CSharp
         m_MethodName: Exit
         m_Mode: 1
         m_Arguments:
