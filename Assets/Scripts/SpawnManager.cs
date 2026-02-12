@@ -23,6 +23,8 @@ public class SpawnManager : MonoBehaviour
 
         waveNumber = 1;
         uiHandler.PrintWave(waveNumber);
+        uiHandler.bestWaveText.SetText("Best Wave: " + MainManager.Instance.bestWave);
+
 
 
         SpawnEnemyWave(waveNumber);
@@ -40,6 +42,11 @@ public class SpawnManager : MonoBehaviour
             {
                 waveNumber ++;
                 uiHandler.PrintWave(waveNumber);
+                if (waveNumber > MainManager.Instance.bestWave)
+                {
+                    MainManager.Instance.bestWave = waveNumber;
+                    uiHandler.bestWaveText.SetText("Best Wave: " + MainManager.Instance.bestWave);
+                }
 
                 // Spawn a Boos every x number of waves
                 if (waveNumber % bossRound == 0)

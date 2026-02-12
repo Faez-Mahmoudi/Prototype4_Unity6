@@ -18,7 +18,7 @@ public class UIHandler : MonoBehaviour
 
     [Header("UI")]
     [SerializeField] private TextMeshProUGUI waveText;
-    [SerializeField] private TextMeshProUGUI bestWaveText;
+    [SerializeField] public TextMeshProUGUI bestWaveText; // we will access it on SpawnManager.cs
     [SerializeField] private TextMeshProUGUI pointText;
     [SerializeField] private TextMeshProUGUI bestPointText;
     [SerializeField] private TextMeshProUGUI powerupText;
