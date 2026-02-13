@@ -27,6 +27,7 @@ public class UIHandler : MonoBehaviour
     {
         point = 0;
         paused = false;
+        Time.timeScale = 1;
 
         MainManager.Instance.LoadScore();
         MainManager.Instance.isGameActive = true;
@@ -37,25 +38,11 @@ public class UIHandler : MonoBehaviour
         
         pointText.text = "Points: " + point;
         powerupText.text = "Powerup: None" ;
-    
-        //bestScoreText.text = PrintScore(MainManager.Instance.bestScore);
     }
 
     // Update is called once per frame
     void Update()
     {
-        /*
-        if(MainManager.Instance.isGameActive)
-        {
-            if(Time.time >= nextTimeToAddScore && !paused)
-            {
-                ScoreUpdate();
-                nextTimeToAddScore = Time.time + 0.03f;
-            }
-        }
-        else    
-            GameIsOver();            
-        */
         // ESC key pressed
         if (Input.GetKeyDown(KeyCode.Escape))
             ChangePause();
@@ -112,6 +99,11 @@ public class UIHandler : MonoBehaviour
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void Home()
+    {
+        SceneManager.LoadScene("MainMenuScene");
     }
 
     public void Exit()

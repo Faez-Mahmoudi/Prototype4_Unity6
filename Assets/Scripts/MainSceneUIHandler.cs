@@ -13,6 +13,7 @@ public class MainSceneUIHandler : MonoBehaviour
     private void Start()
     {
         sceneName = "";
+        Time.timeScale = 1;
     }
 
     public void OnePlayer()
