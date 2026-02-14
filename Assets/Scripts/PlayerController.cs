@@ -6,8 +6,9 @@ public class PlayerController : MonoBehaviour
     private UIHandler uiHandler;
     private Rigidbody playerRb;
     private GameObject focalPoint;
-    public GameObject powerupIndicator;
+    [SerializeField] private GameObject powerupIndicator;
 
+    [SerializeField] private string inputID;
     private float powerupStrength = 15.0f;
     private float lowerBound = -2.0f;
     public float speed = 5.0f;
@@ -31,14 +32,14 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
-        focalPoint = GameObject.Find("FocalPoint");  
+        focalPoint = GameObject.Find("FocalPoint" + inputID);  
         uiHandler = GameObject.Find("Canvas").GetComponent<UIHandler>(); 
     }
 
     // Update is called once per frame
     void Update()
     {
-        float forwardInput = Input.GetAxis("Vertical");
+        float forwardInput = Input.GetAxis("Vertical" + inputID);
         playerRb.AddForce(focalPoint.transform.forward * forwardInput * speed); 
 
         if(gameObject.transform.position.y < lowerBound)
