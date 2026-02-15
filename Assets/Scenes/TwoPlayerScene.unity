@@ -3971,7 +3971,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1415387521}
-  - component: {fileID: 1415387520}
+  - component: {fileID: 1415387522}
   m_Layer: 0
   m_Name: SpawnManager
   m_TagString: Untagged
@@ -3979,32 +3979,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1415387520
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1415387519}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd5e36ac5c1bfc44893138b759dbbe24, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyPrefabs:
-  - {fileID: 1703888709569622402, guid: 0facc4abddfe79142a306f7e9fa2551a, type: 3}
-  - {fileID: 1703888709569622402, guid: 1f2de45466fffe049a4bdc8d4f61047a, type: 3}
-  powerupPrefabs:
-  - {fileID: 3533063558962822965, guid: 0911041fb6e4246488b26e4e34db4e66, type: 3}
-  - {fileID: 3533063558962822965, guid: e97029e45444d7441b6d3233e3acdcc1, type: 3}
-  - {fileID: 5634176152621948665, guid: 47a187d80bbf18a4cbb106d853638e5b, type: 3}
-  enemyCount: 0
-  waveNumber: 1
-  bossPrefab: {fileID: 3644554535160613618, guid: 9088e00408180ba40a9681e9506f4e89, type: 3}
-  miniEnemyPrefabs:
-  - {fileID: 5203114209439639420, guid: 387b28a500a89604cb7ed30976ec7e65, type: 3}
-  - {fileID: 6388808584300366013, guid: 85b24b43fdaaeb8429966698720fe1fa, type: 3}
-  bossRound: 3
 --- !u!4 &1415387521
 Transform:
   m_ObjectHideFlags: 0
@@ -4020,6 +3994,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1415387522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1415387519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dfa4329f221d3c4280d75b220403984, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerupPrefabs:
+  - {fileID: 3533063558962822965, guid: 0911041fb6e4246488b26e4e34db4e66, type: 3}
+  - {fileID: 3533063558962822965, guid: e97029e45444d7441b6d3233e3acdcc1, type: 3}
+  - {fileID: 5634176152621948665, guid: 47a187d80bbf18a4cbb106d853638e5b, type: 3}
+  rivalCount: 0
 --- !u!1 &1503798544
 GameObject:
   m_ObjectHideFlags: 0

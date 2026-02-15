@@ -1668,7 +1668,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1742899641471652, guid: 923deea38dc6a8843b15db7638919c1e, type: 3}
       propertyPath: m_Name
-      value: PowerupIndicator
+      value: PowerupIndicator1
       objectReference: {fileID: 0}
     - target: {fileID: 1742899641471652, guid: 923deea38dc6a8843b15db7638919c1e, type: 3}
       propertyPath: m_IsActive
@@ -5794,6 +5794,10 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 6392317636792223430, guid: 82dc8705fe3029f4fb2db1c7ed227b41, type: 3}
+      propertyPath: inputID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6392317636792223430, guid: 82dc8705fe3029f4fb2db1c7ed227b41, type: 3}
       propertyPath: powerupIndicator
       value: 
       objectReference: {fileID: 712114676}
@@ -5850,6 +5854,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1975706174163758573, guid: 7e27fade63690c049ae7eed8cff214b8, type: 3}
+      propertyPath: inputID
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4889984274399150180, guid: 7e27fade63690c049ae7eed8cff214b8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -5892,7 +5900,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7565038312232386732, guid: 7e27fade63690c049ae7eed8cff214b8, type: 3}
       propertyPath: m_Name
-      value: FocalPoint
+      value: FocalPoint1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
