@@ -1574,7 +1574,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 806225679}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIHandler, Assembly-CSharp
         m_MethodName: Restart
         m_Mode: 1
@@ -2467,17 +2467,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 806225674}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cdb8118d4ef6144dbdb0535bf39c84a, type: 3}
+  m_Script: {fileID: 11500000, guid: 136d10dcc977d4543ab20247cb0584da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverPanel: {fileID: 78284622}
   pausePanel: {fileID: 1040537244}
   paused: 0
-  waveText: {fileID: 1557839221}
-  bestWaveText: {fileID: 1517606774}
-  pointText: {fileID: 0}
-  bestPointText: {fileID: 555003566}
-  powerupText: {fileID: 1327545678}
+  winText1: {fileID: 1557839221}
+  winText2: {fileID: 2081209098}
+  powerupText1: {fileID: 1327545678}
+  powerupText2: {fileID: 800198864}
 --- !u!1 &820644154
 GameObject:
   m_ObjectHideFlags: 0
@@ -2636,7 +2634,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1040537245
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3311,6 +3309,33 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1742899641471652, guid: 923deea38dc6a8843b15db7638919c1e, type: 3}
   m_PrefabInstance: {fileID: 1700911686}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1238643596 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3056370863653186204, guid: 82dc8705fe3029f4fb2db1c7ed227b41, type: 3}
+  m_PrefabInstance: {fileID: 1081245818103954353}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1238643603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1238643596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c512ad5753602ab43b24c9118b870bcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerupIndicator: {fileID: 712114676}
+  inputID: 1
+  speed: 10
+  hasPowerup: 0
+  currentPoverUp: 0
+  rocketPrefab: {fileID: 4369708779277796167, guid: f8f9a239ee4196945a8a4094c3cc1ddb, type: 3}
+  hangTime: 0.5
+  smashSpeed: 10
+  explosionForce: 50
+  explosionRadius: 10
 --- !u!1 &1295352941
 GameObject:
   m_ObjectHideFlags: 0
@@ -3532,7 +3557,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 806225679}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIHandler, Assembly-CSharp
         m_MethodName: ChangePause
         m_Mode: 1
@@ -4010,7 +4035,6 @@ MonoBehaviour:
   - {fileID: 3533063558962822965, guid: 0911041fb6e4246488b26e4e34db4e66, type: 3}
   - {fileID: 3533063558962822965, guid: e97029e45444d7441b6d3233e3acdcc1, type: 3}
   - {fileID: 5634176152621948665, guid: 47a187d80bbf18a4cbb106d853638e5b, type: 3}
-  rivalCount: 0
 --- !u!1 &1503798544
 GameObject:
   m_ObjectHideFlags: 0
@@ -4775,7 +4799,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 806225679}
-        m_TargetAssemblyTypeName: UIHandler, Assembly-CSharp
+        m_TargetAssemblyTypeName: TwoPlayerUIHandler, Assembly-CSharp
         m_MethodName: Home
         m_Mode: 1
         m_Arguments:
@@ -5200,7 +5224,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 806225679}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIHandler, Assembly-CSharp
         m_MethodName: Exit
         m_Mode: 1
@@ -6157,7 +6181,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 806225679}
-        m_TargetAssemblyTypeName: UIHandler, Assembly-CSharp
+        m_TargetAssemblyTypeName: TwoPlayerUIHandler, Assembly-CSharp
         m_MethodName: Exit
         m_Mode: 1
         m_Arguments:
@@ -6363,6 +6387,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6392317636792223430, guid: 82dc8705fe3029f4fb2db1c7ed227b41, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6392317636792223430, guid: 82dc8705fe3029f4fb2db1c7ed227b41, type: 3}
       propertyPath: powerupIndicator
       value: 
       objectReference: {fileID: 712114676}
@@ -6409,7 +6437,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3056370863653186204, guid: 82dc8705fe3029f4fb2db1c7ed227b41, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1238643603}
   m_SourcePrefab: {fileID: 100100000, guid: 82dc8705fe3029f4fb2db1c7ed227b41, type: 3}
 --- !u!1001 &3471831728484155258
 PrefabInstance:
