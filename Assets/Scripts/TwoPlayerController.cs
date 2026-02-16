@@ -3,10 +3,12 @@ using System.Collections;
 
 public class TwoPlayerController : MonoBehaviour
 {
-    private UIHandler uiHandler;
+    private TwoPlayerUIHandler uiHandler;
+    private TwoPlayerSpawnManager spawnManager;
     private Rigidbody playerRb;
     private GameObject focalPoint;
     [SerializeField] private GameObject powerupIndicator;
+    [SerializeField] private GameObject startPoint;
 
     [SerializeField] private string inputID;
     private float powerupStrength = 15.0f;
@@ -33,7 +35,9 @@ public class TwoPlayerController : MonoBehaviour
     {
         playerRb = GetComponent<Rigidbody>();
         focalPoint = GameObject.Find("FocalPoint" + inputID);  
-        uiHandler = GameObject.Find("Canvas").GetComponent<UIHandler>(); 
+        uiHandler = GameObject.Find("Canvas").GetComponent<TwoPlayerUIHandler>(); 
+        spawnManager = GameObject.Find("SpawnManager").GetComponent<TwoPlayerSpawnManager>(); 
+
     }
 
     // Update is called once per frame
@@ -43,7 +47,11 @@ public class TwoPlayerController : MonoBehaviour
         playerRb.AddForce(focalPoint.transform.forward * forwardInput * speed); 
 
         if(gameObject.transform.position.y < lowerBound)
-            uiHandler.GameIsOver();
+        {
+            gameObject.transform.position = startPoint.transform.position;
+            //playerRb.AddForce(new Vector3 * 0);
+            spawnManager.SpawnPowerup();
+        }
 
         powerupIndicator.transform.position = transform.position + new Vector3(0, -0.5f, 0);  
 
@@ -65,7 +73,7 @@ public class TwoPlayerController : MonoBehaviour
         {
             hasPowerup = true;
             currentPoverUp = other.gameObject.GetComponent<Powerup>().powerUpType;
-            uiHandler.PrintPowerup(currentPoverUp.ToString());
+            uiHandler.PrintPowerup(currentPoverUp.ToString(), inputID);
 
             Destroy(other.gameObject);
             powerupIndicator.gameObject.SetActive(true);
@@ -132,7 +140,7 @@ public class TwoPlayerController : MonoBehaviour
         yield return new WaitForSeconds(7);
         hasPowerup = false;
         currentPoverUp = PowerUpType.None;
-        uiHandler.PrintPowerup("None");
+        uiHandler.PrintPowerup("None", inputID);
         powerupIndicator.gameObject.SetActive(false);
     }
 }

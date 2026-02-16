@@ -3,17 +3,12 @@ using UnityEngine;
 public class TwoPlayerSpawnManager : MonoBehaviour
 {
     public GameObject[] powerupPrefabs;
-
-    //private UIHandler uiHandler;
-
     private float spawnRange = 9.0f;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //uiHandler = GameObject.Find("Canvas").GetComponent<UIHandler>(); 
-
         SpawnPowerup();
     }
 
