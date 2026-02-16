@@ -45,14 +45,14 @@ public class TwoPlayerUIHandler : MonoBehaviour
             ChangePause();
     }
 
-    public void AddWin(int value, int id)
+    public void AddWin(int value, string id)
     {
-        if( id == 1 )
+        if( id == "2" )
         {
             winOne += value;
             winText1.text = "Wins: " + winOne;
         }
-        else if( id == 2 )
+        else if( id == "1" )
         {
             winTwo += value;
             winText2.text = "Wins: " + winTwo;
@@ -61,8 +61,10 @@ public class TwoPlayerUIHandler : MonoBehaviour
 
     public void PrintPowerup(string powerupName, string id)
     {
-        //var powerupText = 
-        powerupText1.text = "Powerup: " + powerupName;
+        if( id == "1" )
+            powerupText1.text = "Powerup: " + powerupName;
+        else if( id == "2" )
+            powerupText2.text = "Powerup: " + powerupName;        
     }
     
     public void ChangePause()

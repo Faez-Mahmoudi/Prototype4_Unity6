@@ -53,6 +53,7 @@ public class TwoPlayerController : MonoBehaviour
             gameObject.transform.rotation = new Quaternion();
             playerRb.linearVelocity = new Vector3();
             playerRb.angularVelocity = new Vector3();
+            uiHandler.AddWin(1, inputID);
             spawnManager.SpawnPowerup();
         }
 
