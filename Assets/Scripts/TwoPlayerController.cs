@@ -49,7 +49,10 @@ public class TwoPlayerController : MonoBehaviour
         if(gameObject.transform.position.y < lowerBound)
         {
             gameObject.transform.position = startPoint.transform.position;
-            //playerRb.AddForce(new Vector3 * 0);
+            focalPoint.transform.rotation = startPoint.transform.rotation;
+            gameObject.transform.rotation = new Quaternion();
+            playerRb.linearVelocity = new Vector3();
+            playerRb.angularVelocity = new Vector3();
             spawnManager.SpawnPowerup();
         }
 
