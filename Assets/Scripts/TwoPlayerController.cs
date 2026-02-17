@@ -9,6 +9,8 @@ public class TwoPlayerController : MonoBehaviour
     private GameObject focalPoint;
     [SerializeField] private GameObject powerupIndicator;
     [SerializeField] private GameObject startPoint;
+    [SerializeField] private KeyCode smashKey;
+    [SerializeField] private KeyCode rocketKey;
 
     [SerializeField] private string inputID;
     private float powerupStrength = 15.0f;
@@ -59,12 +61,12 @@ public class TwoPlayerController : MonoBehaviour
 
         powerupIndicator.transform.position = transform.position + new Vector3(0, -0.5f, 0);  
 
-        if ( currentPoverUp == PowerUpType.Rockets && Input.GetKeyDown(KeyCode.F))
+        if ( currentPoverUp == PowerUpType.Rockets && Input.GetKeyDown(rocketKey))
         {
             LaunchRockets();
         }
 
-        if ( currentPoverUp == PowerUpType.Smash && Input.GetKeyDown(KeyCode.Space) && !smashing)
+        if ( currentPoverUp == PowerUpType.Smash && Input.GetKeyDown(smashKey) && !smashing)
         {
             smashing = true;
             StartCoroutine(Smash());
@@ -103,16 +105,16 @@ public class TwoPlayerController : MonoBehaviour
 
     void LaunchRockets()
     {
-        foreach (var enemy in FindObjectsByType<Enemy>(FindObjectsSortMode.None))
+        foreach (var rival in FindObjectsByType<TwoPlayerController>(FindObjectsSortMode.None))
         {
             tmpRocket = Instantiate(rocketPrefab, transform.position + Vector3.up, Quaternion.identity);
-            tmpRocket.GetComponent<RocketBehaviour>().Fire(enemy.transform);
+            tmpRocket.GetComponent<RocketBehaviour>().Fire(rival.transform);
         }
     }
 
     IEnumerator Smash()
     {
-        var enemies = FindObjectsByType<Enemy>(FindObjectsSortMode.None); //FindObjectsOfType<Enemy>();
+        var enemies = FindObjectsByType<TwoPlayerController>(FindObjectsSortMode.None); //FindObjectsOfType<Enemy>();
 
         floorY = transform.position.y;
 

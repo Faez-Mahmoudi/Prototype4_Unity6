@@ -69,20 +69,17 @@ public class TwoPlayerUIHandler : MonoBehaviour
     
     public void ChangePause()
     {
-        if (MainManager.Instance.isGameActive)
+        if(!paused)
         {
-            if(!paused)
-            {
-                paused = true;
-                pausePanel.gameObject.SetActive(true);
-                Time.timeScale = 0;
-            }
-            else
-            {
-                paused = false;
-                pausePanel.gameObject.SetActive(false);
-                Time.timeScale = 1;
-            }
+            paused = true;
+            pausePanel.gameObject.SetActive(true);
+            Time.timeScale = 0;
+        }
+        else
+        {
+            paused = false;
+            pausePanel.gameObject.SetActive(false);
+            Time.timeScale = 1;
         }
     }
 

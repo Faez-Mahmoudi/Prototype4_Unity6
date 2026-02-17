@@ -708,6 +708,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerupIndicator: {fileID: 1234651794}
   startPoint: {fileID: 1820624720}
+  smashKey: 102
+  rocketKey: 103
   inputID: 2
   speed: 10
   hasPowerup: 0
@@ -1081,7 +1083,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1040537245
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1515,6 +1517,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerupIndicator: {fileID: 712114676}
   startPoint: {fileID: 483074556}
+  smashKey: 107
+  rocketKey: 108
   inputID: 1
   speed: 10
   hasPowerup: 0
