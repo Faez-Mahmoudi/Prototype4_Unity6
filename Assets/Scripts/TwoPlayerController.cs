@@ -107,8 +107,11 @@ public class TwoPlayerController : MonoBehaviour
     {
         foreach (var rival in FindObjectsByType<TwoPlayerController>(FindObjectsSortMode.None))
         {
-            tmpRocket = Instantiate(rocketPrefab, transform.position + Vector3.up, Quaternion.identity);
-            tmpRocket.GetComponent<RocketBehaviour>().Fire(rival.transform);
+            if(rival.transform.position != gameObject.transform.position)
+            {
+                tmpRocket = Instantiate(rocketPrefab, transform.position + Vector3.up, Quaternion.identity);
+                tmpRocket.GetComponent<RocketBehaviour>().Fire(rival.transform);
+            }  
         }
     }
 
@@ -134,7 +137,7 @@ public class TwoPlayerController : MonoBehaviour
 
         for (int i = 0; i < enemies.Length; i++)
         {
-            if ( enemies[i] != null)
+            if ( enemies[i] != null && enemies[i].transform.position != gameObject.transform.position)
                 enemies[i].GetComponent<Rigidbody>().AddExplosionForce(explosionForce, transform.position, explosionRadius, 0.0f, ForceMode.Impulse);
         }
 
