@@ -79,7 +79,7 @@ public class TwoPlayerController : MonoBehaviour
         {
             hasPowerup = true;
             currentPoverUp = other.gameObject.GetComponent<Powerup>().powerUpType;
-            uiHandler.PrintPowerup(currentPoverUp.ToString(), inputID);
+            uiHandler.PrintPowerup(currentPoverUp, inputID);
 
             Destroy(other.gameObject);
             powerupIndicator.gameObject.SetActive(true);
@@ -149,7 +149,7 @@ public class TwoPlayerController : MonoBehaviour
         yield return new WaitForSeconds(7);
         hasPowerup = false;
         currentPoverUp = PowerUpType.None;
-        uiHandler.PrintPowerup("None", inputID);
+        uiHandler.PrintPowerup(PowerUpType.None, inputID);
         powerupIndicator.gameObject.SetActive(false);
     }
 }

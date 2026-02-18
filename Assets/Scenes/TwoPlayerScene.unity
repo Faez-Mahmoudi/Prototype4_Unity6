@@ -1033,6 +1033,8 @@ MonoBehaviour:
   winText2: {fileID: 2081209098}
   powerupText1: {fileID: 1327545678}
   powerupText2: {fileID: 800198864}
+  keyReminderText1: {fileID: 843335711}
+  keyReminderText2: {fileID: 1070527438}
 --- !u!1 &843335709
 GameObject:
   m_ObjectHideFlags: 0
@@ -1318,8 +1320,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 1691681017
-  m_fontColor: {r: 0.97647065, g: 0, b: 0.8352942, a: 0.39215687}
+    rgba: 2530541817
+  m_fontColor: {r: 0.97647065, g: 0, b: 0.8352942, a: 0.5882353}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

@@ -21,6 +21,8 @@ public class TwoPlayerUIHandler : MonoBehaviour
     [SerializeField] private TextMeshProUGUI winText2;
     [SerializeField] private TextMeshProUGUI powerupText1;
     [SerializeField] private TextMeshProUGUI powerupText2;
+    [SerializeField] private TextMeshProUGUI keyReminderText1;
+    [SerializeField] private TextMeshProUGUI keyReminderText2;
     
     void Start()
     {
@@ -35,6 +37,8 @@ public class TwoPlayerUIHandler : MonoBehaviour
         winText2.text = "Wins: " + winTwo;
         powerupText1.text = "Powerup: None" ;
         powerupText2.text = "Powerup: None" ;
+        keyReminderText1.text = "";
+        keyReminderText2.text = "";
     }
 
     // Update is called once per frame
@@ -59,12 +63,28 @@ public class TwoPlayerUIHandler : MonoBehaviour
         } 
     }
 
-    public void PrintPowerup(string powerupName, string id)
+    public void PrintPowerup(PowerUpType powerup, string id)
     {
         if( id == "1" )
-            powerupText1.text = "Powerup: " + powerupName;
+        {
+            powerupText1.text = "Powerup: " + powerup.ToString();
+            if(powerup == PowerUpType.Smash)
+                keyReminderText1.text = "press K to smash";
+            else if(powerup == PowerUpType.Rockets)
+                keyReminderText1.text = "press L to Fire";
+            else
+                keyReminderText1.text = "";
+        }
         else if( id == "2" )
-            powerupText2.text = "Powerup: " + powerupName;        
+        {
+            powerupText2.text = "Powerup: " + powerup.ToString();
+            if(powerup == PowerUpType.Smash)
+                keyReminderText2.text = "press F to smash";
+            else if(powerup == PowerUpType.Rockets)
+                keyReminderText2.text = "press G to Fire";
+            else
+                keyReminderText2.text = "";
+        }
     }
     
     public void ChangePause()
