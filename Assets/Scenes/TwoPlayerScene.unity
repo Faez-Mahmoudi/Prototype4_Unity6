@@ -1101,8 +1101,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 1694028544
-  m_fontColor: {r: 0, g: 0.82745105, b: 0.9725491, a: 0.39215687}
+    rgba: 3371750144
+  m_fontColor: {r: 0, g: 0.82745105, b: 0.9725491, a: 0.78431374}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1320,8 +1320,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 2530541817
-  m_fontColor: {r: 0.97647065, g: 0, b: 0.8352942, a: 0.5882353}
+    rgba: 3369402617
+  m_fontColor: {r: 0.97647065, g: 0, b: 0.8352942, a: 0.78431374}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1681,7 +1681,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1319264746
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1748,8 +1748,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UIHandler, Assembly-CSharp
+      - m_Target: {fileID: 806225679}
+        m_TargetAssemblyTypeName: TwoPlayerUIHandler, Assembly-CSharp
         m_MethodName: ChangePause
         m_Mode: 1
         m_Arguments:
