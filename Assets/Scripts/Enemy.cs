@@ -4,16 +4,16 @@ public class Enemy : MonoBehaviour
 {
     private UIHandler uiHandler;
 
-    public float speed = 3.0f;
+    [SerializeField] private float speed = 3.0f;
     private Rigidbody enemyRb;
     private GameObject player;
 
     // Boss
-    public bool isBoss = false;
-    public float spawnInterval;
+    [SerializeField] private bool isBoss = false;
+    [SerializeField] private float spawnInterval;
     private float nextSpawn;
-    public int miniEnemySpawnCount;
     private SpawnManager spawnManager;
+    public int miniEnemySpawnCount;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -22,12 +22,8 @@ public class Enemy : MonoBehaviour
         player = GameObject.Find("Player");
         uiHandler = GameObject.Find("Canvas").GetComponent<UIHandler>(); 
 
-
         if (isBoss)
-        {
-            //spawnManager = FindObjectOfType<SpawnManager>();
             spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
-        }
     }
 
     // Update is called once per frame

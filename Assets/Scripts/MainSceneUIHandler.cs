@@ -1,7 +1,5 @@
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using TMPro;
 # if UNITY_EDITOR
 using UnityEditor;
 # endif
@@ -18,25 +16,26 @@ public class MainSceneUIHandler : MonoBehaviour
     {
         sceneName = "";
         Time.timeScale = 1;
-        player.gameObject.SetActive(false);
-        playerOne.gameObject.SetActive(false);
-        playerTwo.gameObject.SetActive(false);
+        OnButtonPress(false, false);
     }
 
     public void OnePlayer()
     {
         sceneName = "OnePlayerScene";
-        player.gameObject.SetActive(true);
-        playerOne.gameObject.SetActive(false);
-        playerTwo.gameObject.SetActive(false);
+        OnButtonPress(true, false);
     }
 
     public void TwoPlayer()
     {
         sceneName = "TwoPlayerScene";
-        player.gameObject.SetActive(false);
-        playerOne.gameObject.SetActive(true);
-        playerTwo.gameObject.SetActive(true);
+        OnButtonPress(false, true);
+    }
+
+    private void OnButtonPress(bool setP1, bool setP2)
+    {
+        player.gameObject.SetActive(setP1);
+        playerOne.gameObject.SetActive(setP2);
+        playerTwo.gameObject.SetActive(setP2);
     }
 
     public void PlayGame()
@@ -47,8 +46,6 @@ public class MainSceneUIHandler : MonoBehaviour
 
     public void Exit()
     {
-        //MainManager.Instance.SaveScore();
-
         # if UNITY_EDITOR
         EditorApplication.ExitPlaymode();
         # else
