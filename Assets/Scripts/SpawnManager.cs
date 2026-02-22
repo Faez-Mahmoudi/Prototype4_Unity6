@@ -2,19 +2,19 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    public GameObject[] enemyPrefabs;
-    public GameObject[] powerupPrefabs;
+    [SerializeField] private GameObject[] enemyPrefabs;
+    [SerializeField] private GameObject[] powerupPrefabs;
 
     private UIHandler uiHandler;
 
     private float spawnRange = 9.0f;
-    public int enemyCount;
-    public int waveNumber;
+    [SerializeField] private int enemyCount;
+    [SerializeField] private int waveNumber;
 
     // Boss variables
-    public GameObject bossPrefab;
-    public GameObject[] miniEnemyPrefabs;
-    public int bossRound;
+    [SerializeField] private GameObject bossPrefab;
+    [SerializeField] private GameObject[] miniEnemyPrefabs;
+    [SerializeField] private int bossRound;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

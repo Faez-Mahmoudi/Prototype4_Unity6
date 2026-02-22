@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class TwoPlayerSpawnManager : MonoBehaviour
 {
-    public GameObject[] powerupPrefabs;
+    [SerializeField] private GameObject[] powerupPrefabs;
     private float spawnRange = 9.0f;
 
 

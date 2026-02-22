@@ -14,7 +14,7 @@ public class TwoPlayerUIHandler : MonoBehaviour
     [Header("Panel")]
     [SerializeField] private GameObject pausePanel;
 
-    public bool paused;
+    private bool paused;
 
     [Header("UI")]
     [SerializeField] private TextMeshProUGUI winText1;
@@ -41,10 +41,8 @@ public class TwoPlayerUIHandler : MonoBehaviour
         keyReminderText2.text = "";
     }
 
-    // Update is called once per frame
     void Update()
     {
-        // ESC key pressed
         if (Input.GetKeyDown(KeyCode.Escape))
             ChangePause();
     }
@@ -63,6 +61,7 @@ public class TwoPlayerUIHandler : MonoBehaviour
         } 
     }
 
+    // Wich key should be represent on the screen
     public void PrintPowerup(PowerUpType powerup, string id)
     {
         if( id == "1" )
