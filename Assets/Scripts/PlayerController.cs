@@ -8,7 +8,6 @@ public class PlayerController : MonoBehaviour
     private GameObject focalPoint;
     [SerializeField] private GameObject powerupIndicator;
 
-    //[SerializeField] private string inputID;
     [SerializeField] private float speed = 5.0f;
     private float powerupStrength = 15.0f;
     private float lowerBound = -2.0f;

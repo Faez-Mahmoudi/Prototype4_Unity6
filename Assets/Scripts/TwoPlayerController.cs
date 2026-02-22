@@ -13,22 +13,21 @@ public class TwoPlayerController : MonoBehaviour
     [SerializeField] private KeyCode rocketKey;
 
     [SerializeField] private string inputID;
+    [SerializeField] private float speed = 5.0f;
     private float powerupStrength = 15.0f;
     private float lowerBound = -2.0f;
-    public float speed = 5.0f;
-    public bool hasPowerup;
 
     // Rocket powerup
-    public PowerUpType currentPoverUp = PowerUpType.None; 
-    public GameObject rocketPrefab; 
+    [SerializeField] private PowerUpType currentPoverUp = PowerUpType.None; 
+    [SerializeField] private GameObject rocketPrefab; 
     private GameObject tmpRocket; 
     private Coroutine powerupCountdown;
 
     // Smash powerup
-    public float hangTime;
-    public float smashSpeed;
-    public float explosionForce;
-    public float explosionRadius;
+    [SerializeField] private float hangTime;
+    [SerializeField] private float smashSpeed;
+    [SerializeField] private float explosionForce;
+    [SerializeField] private float explosionRadius;
     bool smashing = false;
     float floorY;
 
@@ -77,7 +76,6 @@ public class TwoPlayerController : MonoBehaviour
     {
         if (other.CompareTag("Powerup"))
         {
-            hasPowerup = true;
             currentPoverUp = other.gameObject.GetComponent<Powerup>().powerUpType;
             uiHandler.PrintPowerup(currentPoverUp, inputID);
 
@@ -117,7 +115,7 @@ public class TwoPlayerController : MonoBehaviour
 
     IEnumerator Smash()
     {
-        var enemies = FindObjectsByType<TwoPlayerController>(FindObjectsSortMode.None); //FindObjectsOfType<Enemy>();
+        var enemies = FindObjectsByType<TwoPlayerController>(FindObjectsSortMode.None);
 
         floorY = transform.position.y;
 
@@ -147,7 +145,6 @@ public class TwoPlayerController : MonoBehaviour
     IEnumerator PowerupCountDownRoutine()
     {
         yield return new WaitForSeconds(7);
-        hasPowerup = false;
         currentPoverUp = PowerUpType.None;
         uiHandler.PrintPowerup(PowerUpType.None, inputID);
         powerupIndicator.gameObject.SetActive(false);
