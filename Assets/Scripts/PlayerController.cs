@@ -8,23 +8,23 @@ public class PlayerController : MonoBehaviour
     private GameObject focalPoint;
     [SerializeField] private GameObject powerupIndicator;
 
-    [SerializeField] private string inputID;
+    //[SerializeField] private string inputID;
+    [SerializeField] private float speed = 5.0f;
     private float powerupStrength = 15.0f;
     private float lowerBound = -2.0f;
-    public float speed = 5.0f;
-    public bool hasPowerup;
+
 
     // Rocket powerup
-    public PowerUpType currentPoverUp = PowerUpType.None; // determine which logic to enable for the player
-    public GameObject rocketPrefab; // is used for the homing rocket prefab
+    [SerializeField] private PowerUpType currentPoverUp = PowerUpType.None; // determine which logic to enable for the player
+    [SerializeField] private GameObject rocketPrefab; // is used for the homing rocket prefab
     private GameObject tmpRocket; // will be used for spawning in the homing rockets
     private Coroutine powerupCountdown;
 
     // Smash powerup
-    public float hangTime;
-    public float smashSpeed;
-    public float explosionForce;
-    public float explosionRadius;
+    [SerializeField] private float hangTime;
+    [SerializeField] private float smashSpeed;
+    [SerializeField] private float explosionForce;
+    [SerializeField] private float explosionRadius;
     bool smashing = false;
     float floorY;
 
@@ -32,14 +32,14 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
-        focalPoint = GameObject.Find("FocalPoint" + inputID);  
+        focalPoint = GameObject.Find("FocalPoint");  
         uiHandler = GameObject.Find("Canvas").GetComponent<UIHandler>(); 
     }
 
     // Update is called once per frame
     void Update()
     {
-        float forwardInput = Input.GetAxis("Vertical" + inputID);
+        float forwardInput = Input.GetAxis("Vertical");
         playerRb.AddForce(focalPoint.transform.forward * forwardInput * speed); 
 
         if(gameObject.transform.position.y < lowerBound)
@@ -63,7 +63,6 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag("Powerup"))
         {
-            hasPowerup = true;
             currentPoverUp = other.gameObject.GetComponent<Powerup>().powerUpType;
             uiHandler.PrintPowerup(currentPoverUp.ToString());
 
@@ -148,7 +147,6 @@ public class PlayerController : MonoBehaviour
     IEnumerator PowerupCountDownRoutine()
     {
         yield return new WaitForSeconds(7);
-        hasPowerup = false;
         currentPoverUp = PowerUpType.None;
         uiHandler.PrintPowerup("None");
         powerupIndicator.gameObject.SetActive(false);
