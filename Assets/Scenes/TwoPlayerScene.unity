@@ -1028,7 +1028,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pausePanel: {fileID: 1040537244}
-  paused: 0
   winText1: {fileID: 1557839221}
   winText2: {fileID: 2081209098}
   powerupText1: {fileID: 1327545678}
@@ -3608,6 +3607,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7565038312232386732, guid: 7e27fade63690c049ae7eed8cff214b8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3471831728484155260}
+    - targetCorrespondingSourceObject: {fileID: 1576022046292576396, guid: 7e27fade63690c049ae7eed8cff214b8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3471831728484155262}
   m_SourcePrefab: {fileID: 100100000, guid: 7e27fade63690c049ae7eed8cff214b8, type: 3}
 --- !u!1 &3471831728484155259 stripped
 GameObject:
@@ -3628,6 +3630,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 100
   inputID: 1
+--- !u!1 &3471831728484155261 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1576022046292576396, guid: 7e27fade63690c049ae7eed8cff214b8, type: 3}
+  m_PrefabInstance: {fileID: 3471831728484155258}
+  m_PrefabAsset: {fileID: 0}
+--- !u!81 &3471831728484155262
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3471831728484155261}
+  m_Enabled: 1
 --- !u!1001 &4073327005630893985
 PrefabInstance:
   m_ObjectHideFlags: 0
