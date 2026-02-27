@@ -1,6 +1,6 @@
 # Prototype 4 (Unity 6)
 
-![Cover Image](Screenshots/Prototype3_2.jpg)
+![Cover Image](Screenshots/Prototype4_Unity6_1_2.jpg)
 
 **Prototype 4** is an endless-runner Unity game prototype developed as part of the **Unity Junior Programmer Pathway (Unity 6)**.  
 It features enhanced gameplay mechanics including player jump(using rigidbody), obstacles, items, UI interaction, and simple game logic.
